@@ -1,37 +1,38 @@
 import { useState } from "react";
-import { Playlist } from "./components/ItemList";
+import { ListaCanciones } from "./components/ItemList";
 import "./App.css";
 import { canciones } from "./data/item";
 
 function App() {
 
   // lista personal
-  const [myPlaylist, setMyPlaylist] = useState([]); // esta bien
+  const [miLista, setMiLista] = useState([]); // esta bien
 
   // TOOGLE
   // falta export?
-  const agregarCancion = (cancion) => {
-    setMyPlaylist(lista => {
+  const agregarCancion = (canciones) => {
+    setMiLista(lista => {
 
       // falta: 
-      const encontrada = lista.some(item => item.id === cancion.id); 
+      const encontrada = lista.some(item => item.id === canciones.id);
 
       if (encontrada) {
-        lista = lista.filter(item => item.id !== cancion.id); 
-        return lista; 
+        return lista.filter(item => item.id !== canciones.id);
       }
 
-      // agrega la cancion al array
-      return [...lista, cancion];
+      // agrega la canciones al array
+      return [...lista, canciones];
     });
   };
 
-  return(
+  return (
 
     <div>
-      <Playlist canciones={canciones}/>
+      <ListaCanciones canciones={canciones} agregarCancion={agregarCancion} miLista = {miLista} />
     </div>
-  ); 
+  );
 }
 
 export default App;
+
+

@@ -1,6 +1,4 @@
 
-import "../App";
-
 export const Card = ({ nombre, artista, duracion, 
     // se agregan "estaListada", "agregarCancion(cancion)"
     esAcustica, estaListada, agregarCancion, cancion }) => {
