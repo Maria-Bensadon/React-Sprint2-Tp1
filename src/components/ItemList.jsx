@@ -17,6 +17,7 @@ export const ListaCanciones = ({canciones,
             duracion={cancion.duracion}
             cancion = {cancion}
             agregarCancion={agregarCancion}
+            esAcustica={cancion.esAcustica}
             estaListada = {miLista.some(item => 
               item.id === cancion.id
             )}
