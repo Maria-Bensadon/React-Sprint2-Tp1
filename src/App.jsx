@@ -4,13 +4,13 @@ import "./App.css";
 import { canciones } from "./data/item";
 import { BarraBusqueda } from "./components/SearchBar";
 import { BarraNavegacion } from "./components/Navbar";
+import { Panel } from "./components/ListPanel";
 
 function App() {
   // lista personal
   const [miLista, setMiLista] = useState([]); // esta bien
 
-  // TOOGLE
-  // falta export?
+  // TOGGLE
   const agregarCancion = (canciones) => {
     setMiLista((lista) => {
       // falta:
@@ -29,20 +29,34 @@ function App() {
   const [busqueda, setBusqueda] = useState("");
 
   // Canciones filtradas para el Buscador
-  const cancionesFiltradas = canciones.filter(cancion => cancion.nombre.toLowerCase().includes(busqueda.toLowerCase()) ); 
+  const cancionesFiltradas = canciones.filter((cancion) =>
+    cancion.nombre.toLowerCase().includes(busqueda.toLowerCase())
+  );
+
+  // PANEL
+  const [panelAbierto, setPanelAbierto] = useState(false); // valor boleano o bandera
 
   return (
     <div>
       <div>
-        <BarraNavegacion miLista={miLista}/>
-        <BarraBusqueda busqueda={busqueda} setBusqueda={setBusqueda}/>
+        {panelAbierto ? (
+          <Panel
+            miLista={miLista}
+            setPanelAbierto={setPanelAbierto}
+            agregarCancion={agregarCancion}
+          />
+        ) : null}
+      </div>
+      <div>
+        <BarraNavegacion miLista={miLista} setPanelAbierto={setPanelAbierto} />
+        <BarraBusqueda busqueda={busqueda} setBusqueda={setBusqueda} />
       </div>
       <div>
         <ListaCanciones
-        canciones={cancionesFiltradas}
-        agregarCancion={agregarCancion}
-        miLista={miLista}
-      />
+          canciones={cancionesFiltradas}
+          agregarCancion={agregarCancion}
+          miLista={miLista}
+        />
       </div>
     </div>
   );

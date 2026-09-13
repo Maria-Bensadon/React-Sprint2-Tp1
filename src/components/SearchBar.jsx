@@ -12,7 +12,7 @@ export const BarraBusqueda = ({ busqueda, setBusqueda }) => {
                 onChange={(evento) => {
                     setBusqueda(evento.target.value);
                 }}
-            />;
+           />;
         </>
     );
 }
