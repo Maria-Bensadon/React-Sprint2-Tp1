@@ -10,14 +10,14 @@ export const Panel = ({ miLista, setPanelAbierto, agregarCancion, cancion }) => 
                 return <div key={cancion.id}>
                     <p>{cancion.nombre}</p>
                     <p>{cancion.artista}</p>
-                    {/* Boton Quitar Cancion*/}
+                    {/* Btn Quitar Cancion*/}
                     <button onClick={() => { agregarCancion(cancion) }}>
                         Quitar
                     </button>
                 </div>
             })}
 
-            {/*Boton Cerrar Panel*/}
+            {/*Btn Cerrar Panel*/}
             <button onClick={() => { setPanelAbierto(false) }}>
                 Cerrar
             </button>

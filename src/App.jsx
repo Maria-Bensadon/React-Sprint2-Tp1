@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ListaCanciones } from "./components/ItemList";
 import "./App.css";
 import { canciones } from "./data/item";
@@ -35,6 +35,28 @@ function App() {
 
   // PANEL
   const [panelAbierto, setPanelAbierto] = useState(false); // valor boleano o bandera
+
+  // USE EFFECT
+  /**
+      El título de la pestaña muestra el contador con un useEffect: 
+      "Mi lista (3) | NombreDeTuApp". Cuando la lista está vacía, 
+      solo el nombre de tu app. El array de dependencias tiene 
+      que ser el correcto y tenés que poder explicar por qué.
+   */
+
+  useEffect(() =>
+  //console.log('efecto'),
+  {
+    if (miLista.length === 0) {
+      document.title = "OnMusic";
+    }
+    else {
+      document.title = `Mi Lista ${miLista.length} | OnMusic`;
+    }
+  },
+    [miLista]
+  );
+
 
   return (
     <div>

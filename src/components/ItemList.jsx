@@ -7,9 +7,7 @@ export const ListaCanciones = ({ canciones,
   return (
     <div>
       <h2>Lista de canciones disponibles</h2>
-      {/** BUSQUEDA SIN RESULTADOS
-       * {canciones.length === 0 ? <p>No encontramos la cancion que buscas para "{busqueda}"</p> : null}*/}
-      <div>{canciones.length === 0 && <p>No encontramos la cancion que buscas para "{busqueda}"</p>}</div>
+      <div>{canciones.length === 0 ? <p>No encontramos la cancion que buscas para "{busqueda}"</p> : null}</div>
       <div>
         {canciones.map(cancion => (
           <Card
