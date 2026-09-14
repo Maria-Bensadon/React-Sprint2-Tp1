@@ -1,11 +1,13 @@
 
 
-export const Panel = ({ miLista, setPanelAbierto, agregarCancion, cancion }) => {
+export const Panel = ({ miLista, setPanelAbierto, agregarCancion, vaciarLista }) => {
 
     return (
         <div>
+            {/** Condicional */}
             {miLista.length === 0 ? 'Todavía no agregaste nada, buscá algo arriba 👆' : null}
-            {/** funcion map para renderizar la nueva vista */}
+
+            {/** Funcion map para renderizar la nueva vista */}
             {miLista.map((cancion) => {
                 return <div key={cancion.id}>
                     <p>{cancion.nombre}</p>
@@ -17,10 +19,17 @@ export const Panel = ({ miLista, setPanelAbierto, agregarCancion, cancion }) => 
                 </div>
             })}
 
-            {/*Btn Cerrar Panel*/}
-            <button onClick={() => { setPanelAbierto(false) }}>
-                Cerrar
+             {/* Botones*/}
+            <>
+             <button onClick={() => { setPanelAbierto(false) }}>
+                Cerrar 
             </button>
+            </>
+            <>
+                <button onClick={() => { vaciarLista() }}>
+                    Vaciar Lista
+                </button>
+            </>
         </div>
     );
 }

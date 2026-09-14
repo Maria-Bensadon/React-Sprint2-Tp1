@@ -1,3 +1,5 @@
+
+
 export const BarraNavegacion = ({ miLista, setPanelAbierto }) => {
   return (
     <nav>
@@ -7,3 +9,4 @@ export const BarraNavegacion = ({ miLista, setPanelAbierto }) => {
     </nav>
   );
 };
+

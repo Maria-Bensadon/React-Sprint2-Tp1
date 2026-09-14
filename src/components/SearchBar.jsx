@@ -9,6 +9,8 @@ export const BarraBusqueda = ({ busqueda, setBusqueda }) => {
                 placeholder="buscar cancion"
                 className="rounder -lg border-2"
                 value={busqueda}
+
+                // Evento 
                 onChange={(evento) => {
                     setBusqueda(evento.target.value);
                 }}

@@ -8,7 +8,19 @@ import { Panel } from "./components/ListPanel";
 
 function App() {
   // lista personal
-  const [miLista, setMiLista] = useState([]); // esta bien
+  const [miLista, setMiLista] = useState(() => {
+    // inicialización lazy
+    try {
+      const recuperado = localStorage.getItem('OnMusic:MiLista');
+      if (recuperado) {
+        return JSON.parse(recuperado);
+      } else {
+        return [];
+      }
+    } catch (error) {
+      return [];
+    }
+  });
 
   // TOGGLE
   const agregarCancion = (canciones) => {
@@ -57,6 +69,19 @@ function App() {
     [miLista]
   );
 
+  // Guardado
+  useEffect(() => {
+    localStorage.setItem('OnMusic:MiLista', JSON.stringify(miLista));
+  }, [miLista]);
+
+  // Vaciar lista
+  const vaciarLista = () => {
+    if (confirm('Deseas eliminar la lista personal')) {
+      setMiLista([]);
+      localStorage.removeItem('OnMusic:MiLista');
+      setPanelAbierto(false);
+    }
+  }
 
   return (
     <div>
@@ -66,6 +91,7 @@ function App() {
             miLista={miLista}
             setPanelAbierto={setPanelAbierto}
             agregarCancion={agregarCancion}
+            vaciarLista={vaciarLista}
           />
         ) : null}
       </div>

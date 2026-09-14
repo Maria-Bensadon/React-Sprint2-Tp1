@@ -1,6 +1,5 @@
 
 export const Card = ({ nombre, artista, duracion, 
-    // se agregan "estaListada", "agregarCancion(cancion)"
     esAcustica, estaListada, agregarCancion, cancion }) => {
     return (
         <div>
@@ -11,7 +10,7 @@ export const Card = ({ nombre, artista, duracion,
             {/* BAGDE CONDICIONAL */}
             <p>{esAcustica ? "Acústica" : null}</p>
 
-            {/* BTN con condicional ternario */}
+            {/* Btn con condicional ternario */}
             <button onClick={() => agregarCancion(cancion)}>
                 {estaListada ? '✓ En mi lista' : '+ Agregar'}
             </button>
