@@ -21,7 +21,7 @@ export const Panel = ({ miLista, setPanelAbierto, agregarCancion, vaciarLista })
 
              {/* Botones*/}
             <>
-             <button onClick={() => { setPanelAbierto(false) }}>
+             <button onClick={setPanelAbierto}>
                 Cerrar 
             </button>
             </>
