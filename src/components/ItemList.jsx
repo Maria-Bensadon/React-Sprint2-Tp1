@@ -1,13 +1,15 @@
 
 import { Card } from "./ItemCard";
-import '../App'; 
+import '../App';
 
-export const ListaCanciones = ({canciones,
-   agregarCancion, miLista}) => {
+export const ListaCanciones = ({ canciones,
+  agregarCancion, miLista, busqueda }) => {
   return (
     <div>
       <h2>Lista de canciones disponibles</h2>
-
+      {/** BUSQUEDA SIN RESULTADOS
+       * {canciones.length === 0 ? <p>No encontramos la cancion que buscas para "{busqueda}"</p> : null}*/}
+      <div>{canciones.length === 0 && <p>No encontramos la cancion que buscas para "{busqueda}"</p>}</div>
       <div>
         {canciones.map(cancion => (
           <Card
@@ -15,10 +17,10 @@ export const ListaCanciones = ({canciones,
             nombre={cancion.nombre}
             artista={cancion.artista}
             duracion={cancion.duracion}
-            cancion = {cancion}
+            cancion={cancion}
             agregarCancion={agregarCancion}
             esAcustica={cancion.esAcustica}
-            estaListada = {miLista.some(item => 
+            estaListada={miLista.some(item =>
               item.id === cancion.id
             )}
           />

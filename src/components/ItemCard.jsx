@@ -9,7 +9,7 @@ export const Card = ({ nombre, artista, duracion,
             <h4>{duracion}</h4>
 
             {/* BAGDE */}
-            <>{esAcustica ? "Acústica" : null}</>
+            <p>{esAcustica ? "Acústica" : null}</p>
 
             {/* Boton con condicional ternario */}
             <button onClick={() => agregarCancion(cancion)}>
