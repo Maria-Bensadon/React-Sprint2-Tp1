@@ -1,14 +1,14 @@
 
 # App (Tema Libre): OnMusic 🎵
 
-Elegí realizar una App de catálogo musical con lista personal. 
-La cual permite buscar canciones, agregarlas a una lista propia 
-además de persistirla entre sesiones.
+Elegí realizar una App de catálogo musical. La cual permite 
+buscar canciones, agregarlas a una lista propia además de 
+persistirla entre sesiones. El catálogo cuenta con 20 canciones. 
 
 ## Cómo correr el proyecto
 
-npm install
-npm run dev
+pnpm install
+pnpm run dev
 
 ## Tecnologías
 
