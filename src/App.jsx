@@ -16,11 +16,6 @@ function App() {
   // BUSCADOR
   const [busqueda, setBusqueda] = useState("");
 
-  // Canciones filtradas para el Buscador
-  const cancionesFiltradas = canciones.filter((cancion) =>
-    cancion.nombre.toLowerCase().includes(busqueda.toLowerCase())
-  );
-
   // PANEL
   const [panelAbierto, setPanelAbierto] = useToggle(false); // valor boleano o bandera
 
@@ -56,7 +51,7 @@ function App() {
         <BarraBusqueda busqueda={busqueda} setBusqueda={setBusqueda} />
       </div>
       <div>
-        <ListaCanciones canciones={cancionesFiltradas} agregarCancion={agregarCancion} miLista={miLista} busqueda={busqueda} />
+        <ListaCanciones canciones={canciones} agregarCancion={agregarCancion} miLista={miLista} busqueda={busqueda} />
       </div>
       <div><Footer/></div>
     </div>
