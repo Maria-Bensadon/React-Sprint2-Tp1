@@ -8,7 +8,10 @@ export const Panel = ({ miLista, setPanelAbierto, agregarCancion, vaciarLista })
             flex flex-col z-40 shadow-2xl" onClick={e => e.stopPropagation()}>
                 {/** Condicional */}
 
-                {miLista.length === 0 ? <p className="text-on-surface-variant text-center mt-8 px-6 opacity-60 text-sm">Todavía no agregaste nada, buscá algo arriba 👆</p> : null}
+                {miLista.length === 0 ? <p className="text-on-surface-variant text-center 
+                mt-8 px-6 opacity-60 text-sm">
+                ✨ Todavía no agregaste ninguna canción ✨
+                </p> : null}
 
                 {/** Funcion map para renderizar la nueva vista */}
                 <div className="flex-1 overflow-y-auto" >
