@@ -7,6 +7,7 @@ import { BarraNavegacion } from "./components/Navbar";
 import { Panel } from "./components/ListPanel";
 import { useMiLista } from "./hooks/onMusic";
 import { useToggle } from "./hooks/useToggle";
+import { Footer } from "./components/Footer";
 
 function App() {
 
@@ -37,7 +38,7 @@ function App() {
   );
 
   return (
-    <div>
+     <div className="min-h-screen bg-(--color-background) text-(--color-on-background)">
       <div>
         {panelAbierto ? (
           <Panel
@@ -48,17 +49,16 @@ function App() {
           />
         ) : null}
       </div>
-      <div>
+      <div className="sticky top-0 z-50">
         <BarraNavegacion miLista={miLista} setPanelAbierto={setPanelAbierto} />
+      </div>
+      <div>
         <BarraBusqueda busqueda={busqueda} setBusqueda={setBusqueda} />
       </div>
       <div>
-        <ListaCanciones
-          canciones={cancionesFiltradas}
-          agregarCancion={agregarCancion}
-          miLista={miLista}
-        />
+        <ListaCanciones canciones={cancionesFiltradas} agregarCancion={agregarCancion} miLista={miLista} busqueda={busqueda} />
       </div>
+      <div><Footer/></div>
     </div>
   );
 }
